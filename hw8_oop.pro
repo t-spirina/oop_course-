@@ -4,4 +4,8 @@ CONFIG -= app_bundle
 CONFIG -= qt
 
 SOURCES += \
-        main.cpp
+        main.cpp \
+    ex_bar.cpp
+
+HEADERS += \
+    ex_bar.h

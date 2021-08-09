@@ -1,27 +1,40 @@
 #include <iostream>
-#include <limits>
-using namespace std;
-ostream& endll(ostream& os) {
-    os.flush();
-    return os << "\n\n";
+#include "ex_bar.h"
+
+template <typename T>
+double div (T &a, T &b)
+{
+    if (b==0)
+        throw ("DivisionByZero");
+    return ((a+0.0)/b);
 }
+
 int main()
 {
-    int intVal;
-    do
+    double a = 3;
+    double b = 0;
+    try
     {
-        cout << "Enter an integer value ";
-        cin>>intVal;
-        if ((cin.fail())||(cin.peek() != '\n')) {
-            cout << "\n it`s not an integer! \n";
-            cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            intVal = -1;
-        }
+        double res = div(a,b);
+        std::cout << "a/b = " << res<< '\n';
+    }
+    catch (const char* exception)
+    {
+         std::cerr << "Error: " << exception << std::endl;
+    }
+    Bar bar;
+    int16_t n;
+    try {
+        do
+        {
+            std::cout<<"\nn= ";
+            std::cin>>n;
 
-    } while (intVal ==-1);
-    cout<<"your input: "<<intVal<<endll;
-    cout<<"it was a new endl"<<endll;
+            bar.set(n);
 
+        } while (n!=0);
+    } catch (Ex &ex) {
+        std::cout<<"Exeption: "<<ex.getEx()<<std::endl;
+    }
     return 0;
 }
