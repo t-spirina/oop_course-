@@ -5,7 +5,8 @@ CONFIG -= qt
 
 SOURCES += \
         main.cpp \
-    ex_bar.cpp
+    robot.cpp
 
 HEADERS += \
-    ex_bar.h
+    robot.h \
+    exeption.h
